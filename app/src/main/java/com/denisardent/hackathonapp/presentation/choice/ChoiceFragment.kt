@@ -1,4 +1,4 @@
-package com.denisardent.hackathonapp.presentation.profile
+package com.denisardent.hackathonapp.presentation.choice
 
 import android.os.Bundle
 import android.view.View
@@ -9,18 +9,16 @@ import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.denisardent.hackathonapp.R
+import com.denisardent.hackathonapp.databinding.ChoiceLayoutBinding
 import com.denisardent.hackathonapp.databinding.ProfileLayoutBinding
-import com.denisardent.hackathonapp.databinding.SubjectLayoutBinding
-import com.denisardent.hackathonapp.presentation.subjectsscreen.SubjectsScreen
-import com.denisardent.hackathonapp.presentation.subjectsscreen.SubjectsViewModel
+import com.denisardent.hackathonapp.presentation.profile.ProfileScreen
+import com.denisardent.hackathonapp.presentation.profile.ProfileViewModel
 import com.denisardent.hackathonapp.presentation.viewBinding
 import com.denisardent.hackathonapp.ui.theme.HackathonAppTheme
 import com.denisardent.hackathonapp.ui.theme.PrimaryBlack
 
-class ProfileFragment: Fragment(R.layout.profile_layout) {
-
-    val viewModel by viewModels<ProfileViewModel>()
-    private val binding by viewBinding<ProfileLayoutBinding>()
+class ChoiceFragment: Fragment(R.layout.choice_layout) {
+    private val binding by viewBinding<ChoiceLayoutBinding>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,11 +29,9 @@ class ProfileFragment: Fragment(R.layout.profile_layout) {
                     modifier = Modifier.fillMaxSize(),
                     color = PrimaryBlack
                 ) {
-                    ProfileScreen(viewModel = viewModel)
+                    ChoiceScreen()
                 }
             }
         }
     }
-
-
 }

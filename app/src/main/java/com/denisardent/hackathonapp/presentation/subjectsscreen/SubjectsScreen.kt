@@ -2,6 +2,7 @@ package com.denisardent.hackathonapp.presentation.subjectsscreen
 
 import android.view.RoundedCorner
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
@@ -25,17 +26,18 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
 import com.denisardent.hackathonapp.R
 import com.denisardent.hackathonapp.data.Subject
 import com.denisardent.hackathonapp.ui.theme.Typography
 
 @Composable
-fun SubjectsScreen(viewModel: SubjectsViewModel){
+fun SubjectsScreen(viewModel: SubjectsViewModel, navController: NavController){
     val subjects = viewModel.subjects.collectAsStateWithLifecycle()
     LazyColumn( horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(30.dp)){
         items(subjects.value.subjectsList){ subject: Subject ->
-            SubjectBox(subject.name, subject.progress)
+            SubjectBox(subject.name, subject.progress, navController)
         }
         item {
             Spacer(modifier = Modifier.height(40.dp))
@@ -44,10 +46,11 @@ fun SubjectsScreen(viewModel: SubjectsViewModel){
 }
 
 @Composable
-fun SubjectBox(text: String, progress: Float){
+fun SubjectBox(text: String, progress: Float, navController: NavController){
     Box(modifier = Modifier
         .clip(shape = RoundedCornerShape(10.dp))
         .height(180.dp)
+        .clickable { navController.navigate(R.id.action_profileFragment_to_choiceFragment) }
         .fillMaxWidth(0.85f)){
         Image(
             painter = painterResource(id = R.drawable.back),

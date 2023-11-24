@@ -8,7 +8,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.denisardent.hackathonapp.R
 
-val firaSansFamily = FontFamily(
+val monsteratFamily = FontFamily(
     Font(R.font.montserrat_bold, FontWeight.Bold)
 )
 
