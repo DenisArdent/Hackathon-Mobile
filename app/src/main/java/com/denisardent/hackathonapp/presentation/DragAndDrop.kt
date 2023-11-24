@@ -62,7 +62,6 @@ fun DragableScreen(
 fun <T> DragTarget(
     modifier: Modifier = Modifier,
     dataToDrop: T,
-    viewModel: MainViewModel,
     content: @Composable (() -> Unit)
 ) {
 
@@ -77,7 +76,6 @@ fun <T> DragTarget(
         }
         .pointerInput(Unit) {
             detectDragGesturesAfterLongPress(onDragStart = {
-                viewModel.startDragging()
                 currentState.dataToDrop = dataToDrop
                 currentState.isDragging = true
                 currentState.dragPosition = currentPosition + it
@@ -86,11 +84,9 @@ fun <T> DragTarget(
                 change.consumeAllChanges()
                 currentState.dragOffset += Offset(dragAmount.x, dragAmount.y)
             }, onDragEnd = {
-                viewModel.stopDragging()
                 currentState.isDragging = false
                 currentState.dragOffset = Offset.Zero
             }, onDragCancel = {
-                viewModel.stopDragging()
                 currentState.dragOffset = Offset.Zero
                 currentState.isDragging = false
             })
