@@ -4,6 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,11 +19,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
 fun ProfileScreen(viewModel: ProfileViewModel) {
-    val name = viewModel.subjects.collectAsStateWithLifecycle()
+    val state = viewModel.subjects.collectAsStateWithLifecycle()
     Column(verticalArrangement = Arrangement.spacedBy(10.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-        Box(Modifier.background(Color.Black, shape = CircleShape)){
+        Spacer(Modifier.height(100.dp))
+        Box(Modifier.background(Color.LightGray, shape = CircleShape).size(200.dp)){
 
         }
-        Text(text =  "$name")
+        Text(text =  "${state.value.name}")
     }
 }
