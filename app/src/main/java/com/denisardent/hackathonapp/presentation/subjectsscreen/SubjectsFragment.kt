@@ -8,7 +8,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.denisardent.hackathonapp.R
 import com.denisardent.hackathonapp.databinding.SubjectLayoutBinding
 import com.denisardent.hackathonapp.presentation.viewBinding
@@ -20,10 +23,11 @@ class SubjectsFragment: Fragment(R.layout.subject_layout) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val navController = findNavController()
         binding.root.setContent{
             HackathonAppTheme {
                 // A surface container using the 'background' color from the theme {
-                SubjectsScreen(viewModel = viewModel)
+                SubjectsScreen(viewModel = viewModel, navController = navController)
             }
         }
     }

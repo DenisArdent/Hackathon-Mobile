@@ -6,9 +6,17 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.denisardent.hackathonapp.presentation.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_choiceFragment"
+            app:destination="@id/choiceFragment" />
+    </fragment>
     <fragment
         android:id="@+id/subjectsFragment"
         android:name="com.denisardent.hackathonapp.presentation.subjectsscreen.SubjectsFragment"
         android:label="SubjectsFragment" />
+    <fragment
+        android:id="@+id/choiceFragment"
+        android:name="com.denisardent.hackathonapp.presentation.choice.ChoiceFragment"
+        android:label="ChoiceFragment" />
 </navigation>
