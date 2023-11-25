@@ -1,9 +1,17 @@
 package com.denisardent.hackathonapp.data.network
 
+import retrofit2.http.Body
+import retrofit2.http.POST
+
 interface AccountApi {
-    suspend fun signIn(email: String, password: String)
+
+
+    @POST("authorization")
+    suspend fun authorization(@Body body: AuthorizationRequestEntity): AuthorizationResponseEntity
+
     /**
      * Creates new account
      */
-    suspend fun signUp()
+    @POST("registration")
+    suspend fun signUp(@Body body: AuthorizationRequestEntity): RegistrationResponseEntity
 }

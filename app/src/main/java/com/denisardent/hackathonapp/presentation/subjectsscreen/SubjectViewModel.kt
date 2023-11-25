@@ -15,8 +15,7 @@ class SubjectsViewModel: ViewModel() {
         viewModelScope.launch {
             _subjects.emit(
                 SubjectsModelState(
-                    subjectsList = listOf(Subject("Математика", 0.5f), Subject("Русский", 0.2f)
-                        , Subject("Русский", 0.2f) , Subject("Русский", 0.2f)),
+                    subjectsList = listOf(Subject("Математика", 0.1f), Subject("Русский", 0.0f)),
                     isSubjectsLoading = false
                 )
             )

@@ -50,7 +50,7 @@ fun SubjectBox(text: String, progress: Float, navController: NavController){
     Box(modifier = Modifier
         .clip(shape = RoundedCornerShape(10.dp))
         .height(180.dp)
-        .clickable { navController.navigate(R.id.action_profileFragment_to_choiceFragment) }
+        .clickable { navController.navigate(R.id.choiceFragment) }
         .fillMaxWidth(0.85f)){
         Image(
             painter = painterResource(id = R.drawable.back),
