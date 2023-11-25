@@ -40,18 +40,18 @@ fun ChoiceScreen() {
                 .background(color = Color(0xFF171717), shape = RoundedCornerShape(size = 15.dp)),
             contentAlignment = Alignment.Center
         ){
-            Text(color = Color.White, text = "<B<DB<",
+            Text(color = Color.White, text = "2+2?",
                 fontFamily = monsteratFamily, fontWeight = FontWeight.Bold,
                 fontSize = 28.sp)
         }
         Spacer(modifier = Modifier.height(50.dp))
         ChoseText(text = "Выберите ответ:", paddingStart = 30.dp)
         Spacer(modifier = Modifier.height(10.dp))
-        ChoseBox()
+        ChoseBox(text = "3")
         Spacer(modifier = Modifier.height(10.dp))
-        ChoseBox()
+        ChoseBox(text = "4")
         Spacer(modifier = Modifier.height(10.dp))
-        ChoseBox()
+        ChoseBox(text = "5")
     }
 }
 
@@ -68,7 +68,7 @@ fun ChoseText(
 }
 
 @Composable
-fun ColumnScope.ChoseBox(color: Color = Color.White){
+fun ColumnScope.ChoseBox(color: Color = Color.White, text: String){
     Box (
         Modifier
             .background(color, shape = RoundedCornerShape(size = 15.dp))
@@ -77,7 +77,7 @@ fun ColumnScope.ChoseBox(color: Color = Color.White){
             .align(alignment = Alignment.CenterHorizontally)){
         Text(
             fontSize = 30.sp,
-            color = Color.Black, text = "1", fontFamily = monsteratFamily, fontWeight = FontWeight.Bold,
+            color = Color.Black, text = text, fontFamily = monsteratFamily, fontWeight = FontWeight.Bold,
             modifier = Modifier.align(Alignment.Center)
         )
     }

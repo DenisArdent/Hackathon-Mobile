@@ -1,11 +1,10 @@
 package com.denisardent.hackathonapp
 
-import android.app.Application
 import com.denisardent.hackathonapp.data.network.AccountApi
-import com.denisardent.hackathonapp.data.network.AccountRetrofitRepository
+import com.denisardent.hackathonapp.data.network.RetrofitRepository
+import com.denisardent.hackathonapp.data.network.SubjectsApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 object Repositories {
     val retrofit: Retrofit by lazy {
@@ -15,11 +14,12 @@ object Repositories {
             .build()
     }
 
-    val accountRetrofitRepository: AccountRetrofitRepository
+    val retrofitRepository: RetrofitRepository
 
     init {
         val accountApi = retrofit.create(AccountApi::class.java)
-        accountRetrofitRepository = AccountRetrofitRepository(accountApi)
+        val subjectsApi = retrofit.create(SubjectsApi::class.java)
+        retrofitRepository = RetrofitRepository(accountApi, subjectsApi)
     }
 }
 

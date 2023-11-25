@@ -3,14 +3,13 @@ package com.denisardent.hackathonapp.presentation.authorization
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.denisardent.hackathonapp.Repositories
-import com.denisardent.hackathonapp.data.network.AccountRetrofitRepository
-import com.denisardent.hackathonapp.presentation.profile.ProfileModelState
+import com.denisardent.hackathonapp.data.network.RetrofitRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class SignInViewModel(): ViewModel() {
-    val accountRepository: AccountRetrofitRepository = Repositories.accountRetrofitRepository
+    val accountRepository: RetrofitRepository = Repositories.retrofitRepository
     private val _state = MutableStateFlow(SignInState(false, false))
     val state = _state.asStateFlow()
 
