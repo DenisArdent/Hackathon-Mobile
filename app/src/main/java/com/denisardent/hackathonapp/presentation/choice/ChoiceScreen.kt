@@ -46,6 +46,7 @@ fun ChoiceScreen() {
         }
         Spacer(modifier = Modifier.height(50.dp))
         ChoseText(text = "Выберите ответ:", paddingStart = 30.dp)
+        Spacer(modifier = Modifier.height(10.dp))
         ChoseBox()
         Spacer(modifier = Modifier.height(10.dp))
         ChoseBox()
