@@ -36,11 +36,11 @@ fun SubjectsScreen(viewModel: SubjectsViewModel, navController: NavController){
     val subjects = viewModel.subjects.collectAsStateWithLifecycle()
     LazyColumn( horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(30.dp)){
-        items(subjects.value.subjectsList){ subject: Subject ->
+        items(subjects.value.subjectsList){ subject ->
             SubjectBox(subject.name, subject.progress, navController)
         }
         item {
-            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.height(30.dp))
         }
     }
 }
