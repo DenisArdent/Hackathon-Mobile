@@ -9,15 +9,13 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class SubjectsViewModel: ViewModel() {
-    private val retrofitRepository = Repositories.retrofitRepository
     private val _subjects = MutableStateFlow(SubjectsModelState())
     val subjects = _subjects.asStateFlow()
 
     init {
+        val dataRepository = Repositories.dataRepository
         viewModelScope.launch {
-            val subjectsList = retrofitRepository.getSubjects().map { subjectsResponse ->
-                Subject(subjectsResponse.title, 1.0f/subjectsResponse.maxProgress)
-            }
+            val subjectsList = dataRepository.getSubjects()
             _subjects.emit(
                 SubjectsModelState(
                     subjectsList = subjectsList,

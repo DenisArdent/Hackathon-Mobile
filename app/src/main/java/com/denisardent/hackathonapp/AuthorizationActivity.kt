@@ -18,6 +18,7 @@ class AuthorizationActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     val viewModel by viewModels<SignInViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
+        Repositories.init(applicationContext)
         super.onCreate(savedInstanceState)
         setContent { SignInScreen(viewModel) }
     }
