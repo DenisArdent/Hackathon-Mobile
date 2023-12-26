@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Repositories.init(applicationContext)
         val binding = MainLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

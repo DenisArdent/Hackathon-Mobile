@@ -3,20 +3,19 @@ package com.denisardent.hackathonapp.presentation.authorization
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.denisardent.hackathonapp.Repositories
-import com.denisardent.hackathonapp.data.network.RetrofitRepository
+import com.denisardent.hackathonapp.data.DataRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class SignInViewModel(): ViewModel() {
-    val accountRepository: RetrofitRepository = Repositories.retrofitRepository
+    val accountRepository: DataRepository = Repositories.dataRepository
     private val _state = MutableStateFlow(SignInState(false, false))
     val state = _state.asStateFlow()
 
     suspend fun authorization(username: String, password: String){
         try {
-            val authToken = accountRepository.getAuthToken(username, password)
-            println(authToken.token)
+//            val authToken = accountRepository.getAuthToken(username, password)
             viewModelScope.launch {
                 _state.emit(SignInState(false, true))
             }
@@ -29,7 +28,7 @@ class SignInViewModel(): ViewModel() {
 
     suspend fun registration(username: String, password: String){
         try {
-            val authToken = accountRepository.registrateAccount(username, password)
+//            val authToken = accountRepository.registrateAccount(username, password)
             viewModelScope.launch {
             }
         } catch (e: Exception){
